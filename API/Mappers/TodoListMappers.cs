@@ -19,10 +19,21 @@ namespace API.Mappers
         public static TodoListFindDto ToTodoListFindDto(this TodoList todoList){
            
             return new TodoListFindDto{
+
+                Id = todoList.Id,
                 
                 Title = todoList.Title,
 
                 Items = todoList.Items.Select(s => s.ToTodoItemGetDto()).ToList()
+            };
+        }
+
+        public static TodoList ToTodoListFromPostDto(this TodoListPostDto todoListPostDto){
+
+            return new TodoList{
+                Title = todoListPostDto.Title,
+                Items = todoListPostDto.Items.Select(s => s.ToTodoItemFromPostDto()).ToList()
+            
             };
         }
 

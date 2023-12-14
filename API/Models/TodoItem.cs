@@ -12,7 +12,7 @@ namespace API.Models
         public bool IsCompleted { get; set; }
         
         [ForeignKey("TodoList")]
-        public int? TodoListId { get; set; }
+        public int TodoListId { get; set; }
 
         //Propiedad para navegar con lazy loading 
         public TodoList? TodoList { get; set; }
